@@ -1,7 +1,5 @@
 import random
 import string
-import typing
-from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
 from ui import Ui_MainWindow
 
@@ -13,9 +11,9 @@ class Widget(QMainWindow):
         self.ui.btn_generate.clicked.connect(self.exemple)
     def exemple(self):
         a = string.ascii_letters if self.ui.cb_alphabete.isChecked() else ""
-        b = string.ascii_letters if self.ui.cb_number.isChecked() else ""
+        b = string.digits if self.ui.cb_number.isChecked() else ""
         c = a+b+string.punctuation
-        password = "".join(random.choice(c) for i in range(12))
+        password = "".join(random.choice(c) for i in range(16))
         self.ui.result.setText(password)
         print (1)
         
